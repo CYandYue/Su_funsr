@@ -1,0 +1,6 @@
+# folder
+__pycache__/
+outs/
+
+# folder don't hold to much
+data/*.pt
