@@ -1,12 +1,24 @@
 import open3d as o3d
 
-# 读取 PLY 文件
-path = "/home/cy/Gra_design/FUNSR/outs/case000070.nii_ds/outputs/00015000_0.0.ply"
-# pcd = o3d.io.read_point_cloud(path)
+mode = "pcd"
+# mode = "mesh"
 
-pcd = o3d.io.read_triangle_mesh(path)
-pcd.compute_vertex_normals()
-print(pcd)
+path_prefix = "/home/cy/Gra_design/FUNSR/outs/case000070.nii_ds/outputs/"
+ply_name = "00015000_0.0.ply"
+path = path_prefix + ply_name
 
-# 可视化点云
-o3d.visualization.draw_geometries([pcd])
+
+if mode == "pcd":
+    pcd = o3d.io.read_point_cloud(path)
+    print(pcd)
+    
+    o3d.visualization.draw_geometries([pcd])
+    
+elif mode == "mesh":
+    mesh = o3d.io.read_triangle_mesh(path)
+    print(mesh)
+    
+    # 算一下法向量来渲染
+    mesh.compute_vertex_normals()
+    
+    o3d.visualization.draw_geometries([mesh])
