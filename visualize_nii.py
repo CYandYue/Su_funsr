@@ -22,9 +22,9 @@ def get_slice(index, slice_mode, slice_label):
         print("slice_data is wrong!")
 
 
-slice_mode = 0          # 0是冠状，1是矢状，2是轴向
+slice_mode = 2          # 0是冠状，1是矢状，2是轴向
 slice_data = "val"      # 分为 train 和 val
-slice_label = "labels"   # 维度： images [x,y,z,1]  labels [x,y,z,6]
+slice_label = "images"   # 维度： images [x,y,z,1]  labels [x,y,z,6]
 
 path_prefix = f"/home/cy/Gra_design/dataset/nii_data/{slice_data}/us_{slice_label}/"
 data_name = "case000070.nii.gz"
