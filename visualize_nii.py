@@ -22,7 +22,7 @@ def get_slice(index, slice_mode, slice_label, data):
         print("slice_data is wrong!")
 
 
-slice_mode = 2          # 0是冠状，1是矢状，2是轴向
+slice_mode = 0          # 0是冠状，1是矢状，2是轴向
 slice_folder = "val"      # 分为 train 和 val
 slice_label = "both"   # 维度： images [x,y,z,1]  labels [x,y,z,6]
 data_name = "case000070.nii.gz"
@@ -69,11 +69,13 @@ def update(val):
         label = get_slice(slice_index, slice_mode, "labels", data_label)
         image_display.set_data(image.T)
         label_display.set_data(label.T)
+        ax[0].set_title(f"Slice image {slice_index}/{max_index}")
+        ax[1].set_title(f"Slice label {slice_index}/{max_index}")
     else:
         slice_data = get_slice(slice_index, slice_mode, slice_label, data_image if slice_label == "images" else data_label)
         img_display.set_data(slice_data.T)  # 更新图像
+        ax.set_title(f"Slice {slice_index}/{max_index}")  # 更新标题
         
-    ax.set_title(f"Slice {slice_index}/{max_index}")  # 更新标题
     fig.canvas.draw_idle()  # 刷新
 
 # 绑定滑动条
