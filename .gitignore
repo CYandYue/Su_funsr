@@ -4,3 +4,4 @@ outs/
 
 # folder don't hold to much
 data/*.pt
+data/*/
