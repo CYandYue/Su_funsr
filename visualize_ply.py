@@ -1,13 +1,19 @@
 import open3d as o3d
 
-mode = "pcd"
-# mode = "mesh"
+# mode = "pcd"
+mode = "mesh"
 
 path_prefix = "/home/cy/Gra_design/FUNSR/outs/case000070.nii_ds/outputs/"
 ply_name = "00015000_0.0.ply"
 path = path_prefix + ply_name
 
-path = "/home/cy/Gra_design/FUNSR/data/case000070.nii_ds.ply"
+# path = "/home/cy/Gra_design/FUNSR/data/case000070.nii_ds.ply"
+
+# path = "/home/cy/Gra_design/us_nerf_pro/compounding_result_ply/spine_phantom_left2/model_012000.ply"
+
+path = "/home/cy/Gra_design/FUNSR/outs/model_012000/outputs/00015000_0.0.ply"
+
+
 
 if mode == "pcd":
     pcd = o3d.io.read_point_cloud(path)
