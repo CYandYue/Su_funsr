@@ -1,7 +1,8 @@
 import open3d as o3d
+from pyntcloud import PyntCloud
 
-# mode = "pcd"
-mode = "mesh"
+mode = "pcd"
+# mode = "mesh"
 
 path_prefix = "/home/cy/Gra_design/FUNSR/outs/case000070.nii_ds/outputs/"
 ply_name = "00015000_0.0.ply"
@@ -20,6 +21,10 @@ if mode == "pcd":
     print(pcd)
     
     o3d.visualization.draw_geometries([pcd])
+    
+    # cloud = PyntCloud.from_file(path)
+    # # 可视化点云
+    # cloud.plot()
     
 elif mode == "mesh":
     mesh = o3d.io.read_triangle_mesh(path)
