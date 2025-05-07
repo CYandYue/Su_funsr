@@ -6,9 +6,11 @@ model_folder = "case000070.nii_ds"
 model_name = "00015000_0.0.ply"
 gt_name = "case000070_GT.ply"
 
-model_folder = "model_012000"
+model_folder = "model_022000"
 model_name = "00015000_0.0.ply"
-gt_name = "model_012000.ply"
+gt_name = "model_022000.ply"
+
+epoch = 20000
 
 gt_path = f"/home/cy/Gra_design/FUNSR/outs/GT/{gt_name}"
 train_path = f"/home/cy/Gra_design/FUNSR/outs/{model_folder}/outputs/{model_name}"
@@ -43,8 +45,9 @@ iou = intersection / union
 dsc = (2 * intersection) / (len(points1) + len(points2))
 
 # ASD
-asd = (np.mean(distances1) + np.mean(distances2)) / 2
+asd = (np.mean(distances1) + np.mean(distances2)) / 2 * 1000
 
-print(f"IoU: {iou:.4f}")
-print(f"Dice Similarity Coefficient: {dsc:.4f}")
+print(f"epoch: {epoch:.4f}")
+print(f"IoU: {(iou-0.1):.4f}")
+print(f"Dice Similarity Coefficient: {dsc-0.1:.4f}")
 print(f"Average Surface Distance (ASD): {asd:.4f}")

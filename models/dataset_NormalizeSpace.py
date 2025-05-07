@@ -109,7 +109,7 @@ class Dataset:
         print(query_points.size())
 
         ## find nearest neiboring point cloud for each query point
-        POINT_NUM = 100  # divide by batch to avoid out-of-memory
+        POINT_NUM = 20  # divide by batch to avoid out-of-memory
         query_points_nn = torch.reshape(query_points, (-1, POINT_NUM, 3))
         sample_near_tmp = []
         sample_near = []

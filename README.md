@@ -13,3 +13,7 @@ for more, refer to [pytorch and other related package version](https://pytorch.o
 ```bash
 python run_normalizedSpace.py --gpu 0 --conf confs/conf.conf --dataname case000070.nii_ds  --dir case000070.nii_ds
 ```
+
+```bash
+python run_normalizedSpace.py --gpu 0 --conf confs/conf_us_nerf.conf --dataname model_014000  --dir model_014000
+```
