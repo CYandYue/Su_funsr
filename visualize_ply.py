@@ -12,19 +12,19 @@ path = path_prefix + ply_name
 
 # path = "/home/cy/Gra_design/us_nerf_pro/compounding_result_ply/spine_phantom_left2/model_012000.ply"
 
-path = "/home/cy/Gra_design/FUNSR/outs/model_012000/outputs/00015000_0.0.ply"
+# path = "/home/cy/Gra_design/FUNSR/outs/model_012000/outputs/00015000_0.0.ply"
 
 
 
 if mode == "pcd":
-    pcd = o3d.io.read_point_cloud(path)
-    print(pcd)
+    # pcd = o3d.io.read_point_cloud(path)
+    # print(pcd)
     
-    o3d.visualization.draw_geometries([pcd])
+    # o3d.visualization.draw_geometries([pcd])
     
-    # cloud = PyntCloud.from_file(path)
-    # # 可视化点云
-    # cloud.plot()
+    cloud = PyntCloud.from_file(path)
+    # 可视化点云
+    cloud.plot()
     
 elif mode == "mesh":
     mesh = o3d.io.read_triangle_mesh(path)
