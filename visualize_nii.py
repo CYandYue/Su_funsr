@@ -2,6 +2,8 @@ import nibabel as nib
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
+font_size = 26
+
 # 获取初始切片数据
 def get_slice(index, slice_mode, slice_label, data):
     if slice_label == "images":
@@ -41,8 +43,10 @@ data_label = label.get_fdata().squeeze() # dim [81,118,81,6]
 max_index = data_image.shape[slice_mode] - 1  # 获取最大索引
 slice_index = max_index // 2  # 取中间切片
 
+
 fig, ax = plt.subplots(1, 2 if slice_label == "both" else 1, figsize=(10, 5))
 plt.subplots_adjust(bottom=0.25)  # 预留空间放 slider
+
 
 # 显示初始切片
 if slice_label == "both":
@@ -50,8 +54,8 @@ if slice_label == "both":
     label = get_slice(slice_index, slice_mode, "labels", data_label)
     image_display = ax[0].imshow(image.T, cmap="gray", origin="lower")
     label_display = ax[1].imshow(label.T, cmap="gray", origin="lower")
-    ax[0].set_title(f"Slice image {slice_index}/{max_index}")
-    ax[1].set_title(f"Slice label {slice_index}/{max_index}")
+    ax[0].set_title(f"Slice image {slice_index}/{max_index}", fontsize = font_size)
+    ax[1].set_title(f"Slice label {slice_index}/{max_index}", fontsize = font_size)
 else:
     slice_data = get_slice(slice_index, slice_mode, slice_label, data_image if slice_label == "images" else data_label)
     img_display = ax.imshow(slice_data.T, cmap="gray", origin="lower")
@@ -69,8 +73,8 @@ def update(val):
         label = get_slice(slice_index, slice_mode, "labels", data_label)
         image_display.set_data(image.T)
         label_display.set_data(label.T)
-        ax[0].set_title(f"Slice image {slice_index}/{max_index}")
-        ax[1].set_title(f"Slice label {slice_index}/{max_index}")
+        ax[0].set_title(f"Slice image {slice_index}/{max_index}", fontsize = font_size)
+        ax[1].set_title(f"Slice label {slice_index}/{max_index}", fontsize = font_size)
     else:
         slice_data = get_slice(slice_index, slice_mode, slice_label, data_image if slice_label == "images" else data_label)
         img_display.set_data(slice_data.T)  # 更新图像
