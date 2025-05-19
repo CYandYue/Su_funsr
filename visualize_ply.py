@@ -1,8 +1,12 @@
 import open3d as o3d
 from pyntcloud import PyntCloud
+import trimesh
 
-mode = "pcd"
-# mode = "mesh"
+
+
+
+# mode = "pcd"
+mode = "mesh"
 
 path_prefix = "/home/cy/Gra_design/FUNSR/outs/case000070.nii_ds/outputs/"
 ply_name = "00015000_0.0.ply"
@@ -27,10 +31,13 @@ if mode == "pcd":
     cloud.plot()
     
 elif mode == "mesh":
-    mesh = o3d.io.read_triangle_mesh(path)
-    print(mesh)
+    # mesh = o3d.io.read_triangle_mesh(path)
+    # print(mesh)
     
-    # 算一下法向量来渲染
-    mesh.compute_vertex_normals()
+    # # 算一下法向量来渲染
+    # mesh.compute_vertex_normals()
     
-    o3d.visualization.draw_geometries([mesh])
+    # o3d.visualization.draw_geometries([mesh])
+    
+    mesh = trimesh.load(path)
+    mesh.show()
