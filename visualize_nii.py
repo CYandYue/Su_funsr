@@ -1,6 +1,9 @@
 import nibabel as nib
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
+from matplotlib import rcParams
+
+rcParams['font.family'] = 'Times New Roman'
 
 font_size = 26
 

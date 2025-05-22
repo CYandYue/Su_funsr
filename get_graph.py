@@ -1,4 +1,7 @@
 import matplotlib.pyplot as plt
+from matplotlib import rcParams
+
+rcParams['font.family'] = 'Times New Roman'
 
 # 数据
 epochs = [2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000, 18000]
