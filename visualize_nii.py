@@ -5,7 +5,7 @@ from matplotlib import rcParams
 
 rcParams['font.family'] = 'Times New Roman'
 
-font_size = 26
+font_size = 34
 
 # 获取初始切片数据
 def get_slice(index, slice_mode, slice_label, data):

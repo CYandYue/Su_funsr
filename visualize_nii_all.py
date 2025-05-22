@@ -25,7 +25,7 @@ def get_slice(index, slice_mode, slice_label, data):
         print("slice_data is wrong!")
 
 # 通用字体设置
-font = {'size': 16}
+font = {'size': 32}
 plt.rc('font', **font)
 
 
